@@ -1,5 +1,5 @@
 package com.learn.codingproblem;
-
+//https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/
 public class P2_FindInSortedRotatedAry {
 
 	public static int findPivot(int[]ary)
