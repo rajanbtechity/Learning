@@ -14,6 +14,7 @@ public class HibernateTest {
 		//User # 1
 		UserDetails user=new UserDetails();
 		Address addr=new Address();
+		Address ofc_add=new Address();
 		//user.setUserId(4); This will be taken care by hibernate as we defined @GeneratedValue for userId variable
 		user.setUserName("Santosh");
 		user.setAddress("Opposite RTO office");
@@ -22,7 +23,16 @@ public class HibernateTest {
 		addr.setCity("Hyderabad");
 		addr.setStreet("Lane Opp RTO Ofc");
 		
+		ofc_add.setCity("Hyderabad");
+		ofc_add.setStreet("Mindspace");
+		ofc_add.setPincode("500084");
+		ofc_add.setState("Telangana");
+		
 		user.setAddress(addr);
+		user.setOfcAddress(ofc_add);
+		
+		user.getListOfAddress().add(addr);
+		user.getListOfAddress().add(ofc_add);
 		//User # 2
 		UserDetails user2=new UserDetails();
 		user2.setUserName("Rajan");
