@@ -26,7 +26,7 @@ import org.hibernate.annotations.Type;
 
 @Entity
 @Table (name="USER_DETAILS")
-public class UserDetails {
+public class UserDetails2 {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	//Hibernate creates unique key by using nextval of hibernate PK hibernate_sequence.nextval.
 	//This kind of key is known as surrogate key
@@ -54,7 +54,7 @@ public class UserDetails {
 	})
 	private Address ofcAddress;
 	/*
-	//If we don't use @JoinTable Hibernate will create table as UserDetails_listOfAddress where listOfAddress is colection object name
+	//If we don't use @JoinTable Hibernate will create table as UserDetails2_listOfAddress where listOfAddress is colection object name
 	@ElementCollection
 	@JoinTable(name="USER_ADDERESS",
 			   joinColumns=@JoinColumn(name="USER_ID")
