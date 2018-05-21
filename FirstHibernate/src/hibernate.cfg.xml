@@ -36,6 +36,10 @@
 
         <!--<mapping resource="org/hibernate/tutorial/hbm/Event.hbm.xml"/>-->
         <mapping class="org.rajan.dto.UserDetails"/>
+        <mapping class="org.rajan.dto.UserDetails2"/>
+        <mapping class="org.rajan.dto.UserDetails1toMany"/>
+        <mapping class="org.rajan.dto.Vehicle"/>
+        <mapping class="org.rajan.dto.Vehicle1toMany"/>
 
     </session-factory>
 
