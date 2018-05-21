@@ -57,8 +57,6 @@ public class HibernateTest {
 		//But in case of Lazy loading data is fetched when we try to access it using user.getListOfAddress()
 		//So if FetchType is LAZY then below line will generate error.
 		System.out.println(user.getListOfAddress().size());
-		
-
 	}
 
 }
