@@ -1,0 +1,2 @@
+1. Difference between Integer.class and int.class. Annotation2 class generated NoSuchMethodException when used Integer.class
+2. Same annotation can be defined in different classed. Whats the scope of an annotation.
