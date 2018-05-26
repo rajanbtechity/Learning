@@ -3,7 +3,7 @@ package org.rajan.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.rajan.dto.UserDetails2;
+import org.rajan.dto.UserDetails1to1;
 import org.rajan.dto.Vehicle;
 
 public class HibernateTest1to1Map {
@@ -12,7 +12,7 @@ public class HibernateTest1to1Map {
 		// TODO Auto-generated method stub
 		
 		//User # 1
-		UserDetails2 user=new UserDetails2();
+		UserDetails1to1 user=new UserDetails1to1();
 		//user.setUserId(4); This will be taken care by hibernate as we defined @GeneratedValue for userId variable
 		user.setUserName("Santosh");
 		Vehicle vehicle=new Vehicle();
@@ -29,7 +29,7 @@ public class HibernateTest1to1Map {
 		user=null;
 		session=sessionFactory.openSession();
 		session.beginTransaction();
-		user=session.get(UserDetails2.class, 1);
+		user=session.get(UserDetails1to1.class, 1);
 		session.close();
 		//This is to test eager loading. Even after closing the session data is stored in user object
 		//But in case of Lazy loading data is fetched when we try to access it using user.getListOfAddress()

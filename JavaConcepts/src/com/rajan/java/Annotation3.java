@@ -36,6 +36,7 @@ public class Annotation3 {
 			System.out.println();
 			Method m=c.getMethod("myMeth");
 			annolist=m.getAnnotations();
+			System.out.println(m.isAnnotationPresent(MyAnno3.class));
 			System.out.println("All Annotation of method myMeth");
 			
 			for(Annotation anno:annolist){
