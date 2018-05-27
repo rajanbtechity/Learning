@@ -20,9 +20,15 @@ public class UserDetails1toMany {
 	private String userName;
 	@OneToMany(mappedBy="user")
 	/*
-	 * when we use @JoinTable then Hibernate creates another table which has user_id and vehicle_id reference.
-	 * Another way of using OneToMany relation is to use@JoinColumn in Vehicle1toMany class above UserDetails1toMany object
-	 * so that Vehicle1toMany table itself has a user_id column
+	 * why did we use mappedBy here.
+	 * if we don't use mappedBy then hibernate will create a separate table with userid and vehicleid mapping.
+	 * A user can have multiple vehicle  therefore we can't have a reference to vehicle in user table. But yes
+	 * we can have user reference (userid) in vehicle table. 
+	 * So to achieve that we use mappedBy user where user is an object of UserDetailsOther class defined in vehicleOther class
+	 * and in VehicleOther class we need to use @JoinColumn(name="USER_ID")
+	 * If we don't use @joinColumn(name="USER_ID") in Vehicle class then no issue. 
+	 * Hibernate will create table like this
+	 * Hibernate: insert into VEHICLE_OTHER (user_userId, vehicleName, vehicleId) values (?, ?, ?)
 	 */
 	/*
 	@JoinTable(name="USER_VEHICLE",joinColumns=@JoinColumn(name="USER_ID"),

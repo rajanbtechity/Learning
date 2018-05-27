@@ -44,6 +44,10 @@
         <mapping class="org.rajan.dto.UserDetailsManytoMany"/>
         <mapping class="org.rajan.dto.VehicleOther"/>
         <mapping class="org.rajan.dto.UserDetailsOther"/>
+        <mapping class="org.rajan.dto.UserDetailsInheritance"/>
+        <mapping class="org.rajan.dto.VehicleInheritance"/>
+        <mapping class="org.rajan.dto.TwoWheeler"/>
+        <mapping class="org.rajan.dto.FourWheeler"/>
 
     </session-factory>
 
