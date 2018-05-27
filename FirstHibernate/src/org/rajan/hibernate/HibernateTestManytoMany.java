@@ -3,28 +3,29 @@ package org.rajan.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.rajan.dto.UserDetails1toMany;
-import org.rajan.dto.Vehicle1toMany;
+import org.rajan.dto.UserDetailsManytoMany;
+import org.rajan.dto.VehicleManytoMany;
 
-public class HibernateTest1toMany {
+
+public class HibernateTestManytoMany {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		//User # 1
-		UserDetails1toMany user=new UserDetails1toMany();
+		UserDetailsManytoMany user=new UserDetailsManytoMany();
 		//user.setUserId(4); This will be taken care by hibernate as we defined @GeneratedValue for userId variable
-		user.setUserName("Rajan");
-		Vehicle1toMany vehicle=new Vehicle1toMany();
+		user.setUserName("Santosh");
+		VehicleManytoMany vehicle=new VehicleManytoMany();
 		vehicle.setVehicleName("Car");
 		
-		Vehicle1toMany vehicle2=new Vehicle1toMany();
+		VehicleManytoMany vehicle2=new VehicleManytoMany();
 		vehicle2.setVehicleName("Jeep");
 		
 		user.getVehicle().add(vehicle);
 		user.getVehicle().add(vehicle2);
-		vehicle.setUser(user);
-		vehicle2.setUser(user);
+		vehicle.getUser().add(user);
+		vehicle2.getUser().add(user);
 		
 		SessionFactory sessionFactory=new Configuration().configure().buildSessionFactory();
 		Session session=sessionFactory.openSession();
@@ -38,7 +39,7 @@ public class HibernateTest1toMany {
 		user=null;
 		session=sessionFactory.openSession();
 		session.beginTransaction();
-		user=session.get(UserDetails1toMany.class, 1);
+		user=session.get(UserDetailsManytoMany.class, 1);
 		session.close();
 		//This is to test eager loading. Even after closing the session data is stored in user object
 		//But in case of Lazy loading data is fetched when we try to access it using user.getListOfAddress()

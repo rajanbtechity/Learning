@@ -9,32 +9,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table (name="USER_DETAILS3")
-public class UserDetails1toMany {
+@Table (name="USER_DETAILS4")
+public class UserDetailsManytoMany {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@OneToMany(mappedBy="user")
-	/*
-	 * when we use @JoinTable then Hibernate creates another table which has user_id and vehicle_id reference.
-	 * Another way of using OneToMany relation is to use@JoinColumn in Vehicle1toMany class above UserDetails1toMany object
-	 * so that Vehicle1toMany table itself has a user_id column
-	 */
-	/*
-	@JoinTable(name="USER_VEHICLE",joinColumns=@JoinColumn(name="USER_ID"),
-	           inverseJoinColumns=@JoinColumn(name="VEHICLE_ID")
-			)
-	*/
-	private Collection<Vehicle1toMany> vehicle=new ArrayList();
+	@ManyToMany
+	private Collection<VehicleManytoMany> vehicle=new ArrayList();
 	
-	public Collection<Vehicle1toMany> getVehicle() {
+	public Collection<VehicleManytoMany> getVehicle() {
 		return vehicle;
 	}
-	public void setVehicle(Collection<Vehicle1toMany> vehicle) {
+	public void setVehicle(Collection<VehicleManytoMany> vehicle) {
 		this.vehicle = vehicle;
 	}
 	public int getUserId() {

@@ -16,7 +16,7 @@
         <!-- Database connection settings -->
         <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="connection.url">jdbc:oracle:thin:@127.0.0.1:1521:xe</property>
-        <property name="connection.username">hr</property>
+        <property name="connection.username">rajan_oracle</property>
         <property name="connection.password">rajankumar</property>
 
         <!-- JDBC connection pool (use the built-in) -->
@@ -36,10 +36,14 @@
 
         <!--<mapping resource="org/hibernate/tutorial/hbm/Event.hbm.xml"/>-->
         <mapping class="org.rajan.dto.UserDetails"/>
-        <mapping class="org.rajan.dto.UserDetails2"/>
+        <mapping class="org.rajan.dto.UserDetails1to1"/>
         <mapping class="org.rajan.dto.UserDetails1toMany"/>
         <mapping class="org.rajan.dto.Vehicle"/>
         <mapping class="org.rajan.dto.Vehicle1toMany"/>
+        <mapping class="org.rajan.dto.VehicleManytoMany"/>
+        <mapping class="org.rajan.dto.UserDetailsManytoMany"/>
+        <mapping class="org.rajan.dto.VehicleOther"/>
+        <mapping class="org.rajan.dto.UserDetailsOther"/>
 
     </session-factory>
 
