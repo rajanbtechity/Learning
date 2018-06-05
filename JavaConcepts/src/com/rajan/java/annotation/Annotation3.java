@@ -1,4 +1,4 @@
-package com.rajan.java;
+package com.rajan.java.annotation;
 
 import java.lang.annotation.Annotation;
 import java.lang.annotation.Retention;
