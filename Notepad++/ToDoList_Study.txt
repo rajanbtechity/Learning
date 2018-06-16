@@ -1,0 +1,12 @@
+To Do list
+
+1. What is check sum
+2. What is snapshot and see if i can understand snapshot in windows and git
+3. Try to get back old changes in git
+4. Hash Value
+
+
+Udacity course
+1. Try to understand recursion used in Binary tree implementation
+2. Try to compare recursion of Binary tree implementation with that of quick sort
+3. Red Black tree insertion

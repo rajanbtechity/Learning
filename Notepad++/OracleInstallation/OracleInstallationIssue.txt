@@ -1,0 +1,35 @@
+1. After installing oracle i was not able to connect to oracle when trying to login as SYS. It gave error as
+"ora-12543: tns:destination host unreachable"
+
+This was because of @ in my password. Used password as "rajankumar@20".
+
+2. Renamed password to "rajankumar" using following steps
+
+conn / as sysdba
+alter user sys identified by rajankumar
+
+3. Now you would want to connect as sys. we have another problem
+
+  conn
+  sys
+  rajankumar
+  
+  it gives error as
+  ORA-28009: connection as SYS should be as  SYSDBA or SYSOPER
+  
+4. So now we have to connect SYS as SYSDBA. Syntax for same is below
+
+connect sys/ as sysdba
+rajankumar
+
+5. hr user is by default locked. To unlock hr user use below command.
+
+ ALTER USER hr ACCOUNT UNLOCK;
+
+ 
+ *********************************
+ Oracle sql developer issue
+ 
+ 1. i created two connection in sql developer.
+ 2. With hr i am able to create and access tables but with another user rajan_oracle i get this error.
+ Method oracle/jdbc/driver/OracleResultSetImpl.isClosed()Z is abstract

@@ -1,0 +1,19 @@
+Array vs collection
+
+Array
+1. Fixed in length
+2. Memory wise not recommended.
+3. Performance wise recommended if we know the size.
+4. can be used to store only homogeneous data type elements
+5. No in-line method support for different operations
+6. Can store primitive data type as well as object type(Int and Integer both)
+
+
+Collection
+1. Grow-able in nature
+2. Memory wise recommended
+3. Performance wise not recommended
+4. can store both homogeneous and heterogeneous data type elements.
+5. method support for every operations
+every collection class is implemented based on some standard data structure and hence for every requirement ready made method support is available.
+6. can store only object

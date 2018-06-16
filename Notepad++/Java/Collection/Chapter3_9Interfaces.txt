@@ -1,0 +1,127 @@
+9 Key Interfaces of collection framework.
+
+1. Collection
+2. List
+3. Set
+4. SortedSet
+5. NavigableSet
+6. Queue
+7. Map
+8. SortedMap
+9. NavigableMap
+
+1. Collection(i)
+If we want to represent a group of individual object we should go with Collection.
+
+Common method required for any collection is available under collection interface.
+Common method are remove a object, add a object, get a object, replace an object.
+
+Collection interface is considered as root interface of collection framework. But thats not 100% true as we have two entity under collection framework which is collection and map which are not related. So collection can't be considered as root of Collection framework.
+
+**Collection interface defines most common method which are applicable for any collection object.
+
+**In general collection interface is considered as root interface of collection framework.
+
+**Which concrete class implement collection interface directly?- No class
+
+**What is difference between Collection and Collections?
+Collection is an interface which we learn above and Collections is a class.
+Collections class defines several utility method(sorting,searching etc) for collection object. Example- Collections.sort(ArrayList)
+
+
+2. List(i)
+
+				Collection(i)(1.2v)
+						|
+					    |
+                    List(i)(1.2v)
+				/     |      \
+			   /      |       \
+	ArrayList(c) LinkedList(c) Vector(c)
+		  1.2v    1.2v          \1.0v
+							     \
+								 Stack
+					
+					
+List is child interface of Collection(i).
+If we want to represent a group of individual object as a single entity where duplicate are allowed and insertion order must be preserved then we should go for List.
+
+Implementation classes for List
+2.1 ArrayList
+2.2 LinkedList
+2.3 Vector
+2.4 Stack
+
+In 1.2 version vector and stack classes were re engineered and the link or dependency between List and Vector was created. In other words Vector class was re written to implement List interface.
+
+3.Set
+It is child interface of collection interface.
+If we want to represent a group of individual objects as a single entity where duplicates are not allowed and insertion order not required. Then should go for set interface.
+
+
+                          Collection(i)(1.2v)
+						       |
+							   |
+							 Set(i)(1.2v)
+				         /
+                        /
+               HashSet(1.2v)
+                       |
+                       |
+            LinkedHashSet(1.4v)
+			
+4. SortedSet(i)
+* It is child interface of set.
+* If we want to represent a group of individual object as a single entity where duplicates are not allowed and all object should be inserted according to some sorting order.
+				 
+5. NavigableSet(i)
+* It is child interface of sorted set.
+* It contains several methods for navigation purposes.
+** TreeSet is implementation class for NavigableSet
+
+                         Collection(i)(1.2v)
+						       |
+							   |
+							Set(i)(1.2v)
+							   |
+							   |
+							SortedSet(i)(1.2v)
+							   |
+							   |
+							NavigableSet(i)(1.6v)
+							   |
+							   |
+							 TreeSet(c)(1.2v)
+							 
+Differences Between List and Set
+List
+------
+Duplicates are allowed
+Insertion order preserved
+
+Set
+------
+Duplicates are not allowed.
+Insertion order is not preserved.
+
+6. Queue(i)
+1. It is child interface of collection.
+2. If we want to represent a group of individual objects prior to processing then we should go for queue.
+3. usually queue follows first in first out order but based on our requirement we can implement our own priority order also.
+example - before sending a mail we have to store in some data structure.
+In which order we ordered mail ids in the same order only mail should be delivered.for this requirement queue is best choice.
+
+               Collection(i)(1.2v)
+						|
+					    |
+                   Queue(i)(1.5v)
+			/           |            \
+		   /            |             \
+	Priority queue Blocking Queue(c) 
+		  1.5v         1.5v 
+                        |
+                        |-Priority blocking queue
+                        |
+                        |-LinkedBlocking Queue
+                        |						
+						

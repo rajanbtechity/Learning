@@ -1,0 +1,31 @@
+1. Understanding object/relational persistence
+
+* Before we go into more detail about the practical aspects of SQL databases, we have to mention an important issue: although marketed as relational, a database system providing only an SQL data language interface isn’t really relational and in many
+ways isn’t even close to the original concept. 
+
+Naturally, this has led to confusion. SQL practitioners blame the relational data model for shortcomings in the SQL language,
+and relational data management experts blame the SQL standard for being a weak implementation of the relational model and ideals. Application engineers are stuck somewhere in the middle, with the burden of delivering something that works.
+
+* Relational systems at internet scale
+To understand why relational systems, and the data-integrity guarantees associated with them, are difficult to scale, we recommend that you first familiarize yourself with the CAP theorem. According to this rule, a distributed system can’t be consistent,
+available, and tolerant against partition failures all at the same time.
+
+  CAP Theorem(consistency, availability, partition tolerance)
+  https://en.wikipedia.org/wiki/CAP_theorem
+  
+  ACID(Atomicity, consistency, isolation, durability)
+  https://en.wikipedia.org/wiki/ACID
+  
+  
+* For relational DBMSs designed to scale easily, have a look at VoltDB (www.voltdb.com) and NuoDB (www.nuodb.com). Another interesting read is how Google scales its most important database, for the advertising business, and why it's relational/SQL, in "F1 - The Fault-Tolerant Distributed RDBMS Supporting Google's Ad Business" (Shute, 2012).
+
+* we'll think of the problems of data storage and sharing in the context of an object-oriented application that uses a domain model. Instead of directly working with the rows and columns of a java.sql.ResultSet, the business logic of an application
+interacts with the application-specific object-oriented domain model. If the SQL database schema of an online auction system has ITEM and BID tables, for example,the Java application defines Item and Bid classes. Instead of reading and writing the value of a particular row and column with the ResultSet API, the application loads and stores instances of Item and Bid classes.
+
+* The paradigm mismatch
+   * The problem of granularity
+   * The problem of subtypes
+   * The problem of identity
+   * Problems relating to associations
+     New Database term used in the explanation - Link Table
+   * The problem of data navigation

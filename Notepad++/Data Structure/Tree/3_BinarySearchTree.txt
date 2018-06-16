@@ -1,0 +1,158 @@
+Binary Search Tree
+BST is an efficient structure to organize data for quick search as well as quick update.
+
+Problem statement to understand pros of using BST
+
+We want to be able to perform below operation on a collection.
+a) Search
+b) Insert
+c) Remove
+
+We can use an array or a linked list but the time complexity will be 
+
+Array
+search(x) O(n)
+Insert(x) O(1)
+Remove(x) O(n)
+
+Linked List
+Search(x)  O(n)
+Insert(x)  O(1)  insertion at head is constant and at tail it is n
+Remove(x)  O(n)
+
+For search, n comparisons in worst case
+
+Suppose a machine can compare 10^6 comparison is 1 second
+So for 1 comparison it takes 10^-6 sec
+
+In real its very much possible to have 100 million or billion records.
+So cost of 1 comparison 10^-6 sec
+so cost of 100 million comparison 10^8 * 10^-6=100 seconds
+
+100 seconds for a search is not acceptable when its a very frequently used operation.
+
+Lets suppose we do a binary search in a sorted array. Time complexity for binary search will O(log(n)) which is best running time we have.
+
+Array(Sorted)
+search(x) O(logn)
+Insert(x) O(n)
+Remove(x) O(n)
+
+If data type is integer we can use sorted array.
+For other data type, for some complex data  type we should be able to sort the collection based on some property or some key of the records. We should be able to compare the keys of the records and the comparison logic will be different. 
+So this the requirement we have for binary search.
+The data structure should be an array and the records must be sorted.
+So the cost of search is minimized if we use sorted array.
+But in insertion or removal we will have to make sure the array is sorted afterwards.
+
+2 4 6 9 11 15 _ _
+0 1 2 3  4  5 6 7
+
+If in above array we want to insert number 5 at this stage, we can't simply put 5 at index 6. What we have to do is we first have to find the position at which we can insert 5 in the sorted list. We can find position using binary search in O(logn) time. So find the position of the element which is just greater than 5 which is 2 here. no we need to shift all the records starting this position one position to the right.
+So even when we can find the position quickly in O(logn) time this shifting in worst case will cost O(n).
+So cost of insertion/removal will be O(n)
+
+For n records log2^n comparisons
+if 1 comparison=10^-6
+for n=2^31
+
+10^-6 * log2^2^31
+31*10^-6= 31 micro seconds
+
+BST(balanced)
+search(x) O(logn)
+Insert(x) O(logn)
+Remove(x) O(logn)
+
+
+
+Binary Search Tree is a binary tree in which for each node, value of all the nodes in left subtree is lesser or equal and value of all the nodes in right subtree is greater.
+ 
+                           O
+						 /    \
+				        /_\   /_\
+			Left Subtree     Right Subtree
+			     (Lesser)      (Greater)
+				 
+				           15
+						 /    \
+						10    20
+					   / \    / \
+					  8  12  17 25
+					  
+How Binary search works
+
+n->n/2->n/4->n/8 -------1   -->log2^n
+we keep divide the search space into half at each space until we reach to 1 element.
+
+suppose we took n/2k steps
+so after n/2^k steps we reached to 1 element
+
+n/2^k=1
+
+2^k=n
+log2^2^k=log2^n
+k=log2^n
+
+Searching an element in binary search tree is basically this traversal in which at each step, we will go either towards left or right and hence at each step, we will discard of of the sub tree.
+
+If the tree is balanced, we call a tree balanced if for all nodes, the difference between the height of left and right subtree is not greater than 1.
+So if the tree is balanced, we will start with a search space of n nodes and when we discard one of the sub-trees we will discard n/2 nodes. So search space is reduced by n/2. search space gets reduced by half at each step till we find the element or search space is reduced to 1.
+
+In worst case search time will be O(n) when the tree is sparse and not balanced which is more like a linked list arrangement.
+         25
+		/
+	   20
+	  /
+	 17
+	/
+   15
+  /
+ 12
+ 
+ We try to avoid the worst case by trying to keep the binary search tree balanced.
+ With same records in the tree, there can be multiple possible arrangements.
+1. For all the nodes, we have noting to discard in left sub-tree in a search.
+   8
+    \
+	 10
+	  \
+	   12
+	    \
+		 15
+		  \
+		   17
+		   
+2. Another arrangement is
+                     12
+				   /    \
+                  8     15
+				   \    /\
+				   10  17 20
+                            \
+                            25	
+This is still balanced because for all the nodes, the difference between the heights of left and right sub-tree is not greater than 1.
+
+But the best arrangement is when we have a perfect binary tree.
+At each step we have exactly n/2 nodes to discard.
+
+                           15
+						 /    \
+						10    20
+					   / \    / \
+					  8  12  17 25 							
+
+					  
+Now to insert some records in binary search tree, we will first have to find the position at which we can insert and we can find the position in O(logn) time.
+
+Lets say we want to insert 19 in this tree, what we will do is start at the root.
+if the value to be inserted is lesser or equal, if there is no child, insert a left child or go left.
+if the value is greater and there is no right child, insert as right child or go right.
+In this case 19 is greater, so we will go right.
+now 19 is lesser than 20 and left sub-tree is not empty. We have a left child.
+Now we are at 17, 19 is greater than 17. so 19 should go in the right side of 17. There is no right child of 17.
+So we will create a node with value 19 and link it to this node with value 17 as right child, 
+Because we are using pointers or references here just like linked list, no shifting is needed like an array. creating a link takes a constant time.
+So insertion/deletion will have same time complexity as O(logn) as search.
+
+Binary tree gets unbalanced during insertion and deletion. So often during insertion and deletion we restore the balancing.

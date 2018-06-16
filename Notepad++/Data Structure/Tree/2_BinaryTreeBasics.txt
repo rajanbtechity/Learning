@@ -1,0 +1,132 @@
+Binary Tree
+
+**Each Node can have at most 2 children
+
+**Strict Binary Tree- Each node can have either 2 or 0 children
+
+
+**Complete Binary tree- All levels except possibly the last are completely filled and all nodes are as left a possible.
+
+**max no of nodes at level i = 2^i
+
+**Perfect Binary tree- In a perfect binary tree all levels will be completely filled.
+
+
+**Maximum no of nodes in a tree with height h
+2^0 + 2^1 + 2^2 + 2^3+ ....... 2^has
+(2^(h+1))-1 
+h+1 is no of levels so 
+
+2^(h+1) - 1 = 2^ no of levels  -  1
+
+So a perfect binary tree with 4 levels or height 3 will have 15 nodes.
+
+
+** Find height of Binary tree with n nodes(15)
+-- in log2^ , ^ is used to separate base and exponent. where as in other cases ^ is used as superscript
+
+n=2^(h+1) -1
+
+n+1=2^(h+1)
+
+log2^(n+1)=log2^(2^(h+1))
+
+log2^(n+1)=h+1
+
+h=log2^(n+1) - 1
+
+h=log2^(16) - 1
+h=log2^(2^4) - 1
+h=4-1
+h=3
+
+** Height of perfect binary tree with n nodes= log2^(n+1) - 1
+
+** Height of complete binary tree = floor of log n to the base 2 which is |_ log2^n _|
+
+ex- |_ log2^n _|
+|_ log2^15 _|
+
+|_ 3.906891 _|
+
+Taking integral part will give 3
+
+
+**Cost of a lot of operations on tree in terms of time depends upon the height of tree.
+For example in binary search tree which is a special kind of binary tree, the cost of searching, inserting or removing an element in terms of time is proportional to the height of the tree. 
+So in such cases we would want the height of the tree to be less.
+Height of a tree will be less if the tree will be dense, if the tree will be close to a perfect binary tree or a complete binary tree.
+
+Minimum height of a tree with n nodes can be logn to the base 2 when the tree will be a complete binary tree.
+
+h=log2^n for complete binary tree
+
+
+and if we have arrangement like below then the tree will have maximum height.
+         O
+		/
+	   0
+	  /
+	 0
+	/
+   0
+
+   With n Nodes
+   
+   Minimum height possible = Floor of or integral part of log2^n
+   Maximum height possible = n - 1
+   
+   Maximum height will be for a sparse tree which is shown above which is as good as a linked list.
+   
+   If time taken is proportional to the height of the tree or in other words if time complexity of an operation if  big-oh of h where h is height of the binary tree then 
+   for a complete or perfect binary tree,  my time complexity will be O(log2^n)
+   and in worst case for this sparse tree my time will be O(n)
+   
+   For n as high as 2^100, log2^(2^100) is just 100
+   and with order of n running time, if n will be 2^100, we won't be able to finish our computation in years with most powerful machine ever made.
+   
+   Quite often we  try to keep the height of binary tree minimum possible or we try to keep binary tree balanced.
+   
+   We call a binary tree balanced binary tree if for each node, the difference between height of left and right sub tree is not more than some number k. Mostly k will be 1.
+   
+   So, We can say that for each node, difference between height of left and  right sub-tree should not be more than 1.
+   
+
+Lets talk about height of tree a little bit.
+
+As we defined height earlier as number of edges in longest path from root to a leaf.
+We can define an empty tree as a tree with no node and we can say that height of an empty  tree is -1.
+
+balanced binary tree= Difference between height of left and right subtree for every node not more than k(Mostly 1)
+
+height = no of edges in the longest path from root to a leaf.
+Height of an empty tree= -1
+height of a tree with 1 node= 0
+
+Quite often people calculate height as number of nodes in longest path from root to a leaf.
+If we will count  the nodes, height of tree with just one node will be equal to 1 and then we can say that height of an empty tree will be 0, but this is not the correct definition and we won't use that assumption. 
+
+We are going to say that height of an empty tree is -1 and height of tree with one node is 0.
+
+diff = |height of left subtree - height of right subtree|
+
+** If height is minimized, cost of various operations that depend upon height are minimized.
+
+** How to store binary tree in memory.
+a) Dynamically created nodes
+Nodes dynamically created at random locations in memory linked together through pointers.
+b) Arrays are used for complete binary trees.
+                   index-node-data
+
+                        0-O-2
+					 /        \  
+				  1-O-4       2-O-1
+				  /   \       /    \
+			   3-O-5 4-O-8  5-O-7  6-O-9
+			   
+			   Array- 2 4 1 5 8 7 9
+			   
+ For node at index i,
+ left child index = 2i+1
+ right child index= 2i+2
+			    

@@ -1,0 +1,12 @@
+**What is collection?
+ A collection is a group of individual object as a single entity.
+ 
+ 
+** What is collection framework?
+Collection framework contains several classes and interfaces which are used to group individual object as single entity.
+
+** Collection framework in java is equivalent to STL(Standard Template library) in C++
+
+** Between class and interface An interface provides more details. Class is a dummy entity which implements interfaces. 
+
+So next we will learn 9 key interfaces of collection.

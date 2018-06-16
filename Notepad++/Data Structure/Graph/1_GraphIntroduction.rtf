@@ -1,0 +1,82 @@
+*Data structures are ways to store and organize data.Array, linked list, stack and queue. All these are linear data structure. Tree is a non-linear data structure. Tree is hierarchical structure.
+
+*A graph just like a tree is a collection of objects or entities that we call nodes or vertices, connected to each other through a set of edges.
+But in a tree connections are bound to be in a certain way. In a tree there are rules dictating the connection between nodes. 
+In a tree with N nodes we must exactly have N-1 edges. An edge in a tree is for parent-child relationship. In a tree all nodes should be reachable from root.
+
+*In a graph there are no rules dictating the connection among the nodes. A graph contains a set of nodes and a set of edges and edges can be connecting nodes in any possible way. 
+Tree is a only a special kind of graph
+
+*In mathematical terms
+Graph:
+A graph G is an ordered pair of a set V of vertices and a set E of edges.
+G=(V,E)
+(V,E) This is how we represent an ordered pair. Objects separated by comma put within parenthesis. Since order does matter here, V is the first object in the pair and E is the second object.
+An ordered pair A,B is not equal to B,A unless A and B are equal.
+
+Ordered pair
+(a,b)#(b,a) if a#b  --># is used to represent not equal to(!=)
+Unordered pair
+{a,b}={b,a}
+
+                   v1         v2
+                    O---------O
+				   /\		  /\
+	              /  \		 /  \
+			   v3O	v4O   v5O   Ov6 
+				 |      \  /  _/  
+				 |       \/__/
+			   v7O-------O/
+			             v8
+Edges
+ O------>O             O------O
+ u       v             u      v1
+  directed             undirected
+    (u,v)                {u,v}
+   
+For a directed edge one of the endpoint will be origin and other end point will be destination. A directed edge can be represented as an ordered pair.
+
+For undirected edge connection is two way and undirected edge can be represented as unordered pair.
+				 
+V={v1,v2,v3,v4,v5,v6,v7,v8}
+E={{v1,v2},{v1,v3},{v1,v4},{v2,v5},{v2,v6},{v3,v7},{v4,v8},
+   {v5,v8},{v6,v8},{v7,v8}}
+   
+It is possible for a graph to have both directed and undirected edges, but we won't study such graphs and we are only going to study those graphs which has all directed or undirected edges.
+
+* A graph with all directed edges is called a directed graph or digraph and a graph undirected edges is called undirected graph.
+
+*A graph can be used to represent any kind of pairwise relationship.
+
+Examples
+1. Social network(facebook) is an undirected graph because friendship is mutual relationship.
+
+Look at the image here   file:///D:/Notepad%20Workspace/Images/GraphExample.jpg
+
+A user is a node in the graph and if two users are friend there will an edge connecting them.
+Once we represent a system modeled as graph many problems can be solved by using standard algorithm of graph theory.
+Lets suppose a problem statement as "suggest friends to a user Rama who are not connected to rama"
+--We can suggest Tom, Sam, Lee and Swati.
+In pure graph terms the problem can be re stated as Finding all nodes having length of shortest path from a given node equal to 2
+
+
+2. Inter linked  web pages on world wide web or Internet can be represented as a directed graph.
+Look at the image here file:///D:/Notepad%20Workspace/Images/GraphExample_webpages.jpg
+The edges in the graph are directed because the relationship is not mutual.
+One of the tasks that search engines like Google perform very regularly is web crawling. Search engine uses a program web crawler which traverses through web pages.
+Web-crawling is Graph Traversal
+
+
+* Weighted vs unweighted Graph
+Sometimes in a graph all connections cannot be treated as equal. Some connections can be preferable to others.
+We can represent intercity road network that is the network of highways and freeways between cities as an undirected graph. Lets assume all highways would be bi-directional.
+
+Intra-city road network can definitely have one way so that can be represented as a directed graph.
+Now clearly we cannot treat all connections equally here. Roads would be  of different lengths and to perform a lot of tasks we would need to take length of the roads into account.
+
+In such cases we associate some weight or cost with every edge. We label the edges with their weights.
+Look at the image here file:///D:/Notepad%20Workspace/Images/WeightedGraph.jpg
+
+* An unweighted graph can be seen as a weighted graph in which weight of all the edges are same and typically we assume weight as one.
+
+* We can always draw an undirected graph as directed by having 2 directed edges for each undirected edge. But we may not be able to draw a directed graph as undirected.

@@ -1,0 +1,86 @@
+Properties of Graphs
+
+* Graph is an ordered pair of a set V of vertices and a set E of edges.
+ G=(V,E)
+ 
+ This is how we can represent number of vertices and edges in a graph
+ |V|- Number of vertices
+ |E| - Number of edges
+
+
+* An edge is called self-loop or self edge if it involves only one vertex and both the end point of the edge are same. we can have self-loop in both directed and undirected graphs. A webpage can have link to the same page. Cosider refreshing a page .
+
+* An edge is called multi edge if it occurs more than once in a graph. Example- Flight network. A city would be node and we can have an edge if there is direct flight connectivity between two cities. There can be multiple route to reach to one city.
+
+* Number of edges
+   
+    v1 O         O v2
+	v3 O         O v4
+	
+	V={v1,v2,v3,v4}
+	|V|=4
+	
+Each node can have directed edge to other 3 other nodes.
+Total  node=4
+
+Number of edges possible= n*(n-1)
+
+-->In undirected graph we can have only one bi direction edge for a pair of nodes. So maximum edge possible is half of directed edges
+
+if |V|=n then
+
+0<=|E|<=n(n-1),   if directed
+0<=|E|<=n(n-1)/2, if undirected
+
+* A graph is called dense if number of edges is close to maximum number edges.
+
+* A graph is called sparse if number of edges are very less typically close to number of vertices. 
+
+But there is no definite definition of dense and sparse graph. It just depends on the context 
+
+* Storage structure to represent Dense graph=adjacency matrix
+* Storage structure to represent sparse graph=adjacency list
+
+* Path in a graph
+ A path in a graph is a sequence of vertices where each adjacent pair is connected by an edge.
+ In directed graph all edges should be aligned in one direction the direction of the path.
+ In simple path both vertices and edges are not repeated.
+ <A,B,F,H> - Simple path
+ 
+                    A         B
+                    O---------O
+				   /\		  /\
+	              /  \		 /  \
+			   C O	D O   E O   O F 
+				 |      \  /  _/  
+				 |       \/__/
+			   G O-------O/
+			             H
+						 
+Look at the image here file:///D:/Notepad%20Workspace/Images/GraphCycle.jpg
+
+<A,B,F,H> - Simple path
+<A,B,F,H,E,B,A,D>  - 1 edge and two vertices are repeated.
+
+Path - a walk in which no vertices(and thus no edges) are repeated.
+Trail - a walk in which no edges are repeated.
+
+Most often when we say path we mean simple path.
+
+* Strongly connected graphs
+ If there is a path from any vertex to any other vertex
+ if its undirected graph we simply call connected and if its a directed graph we call it strongly connected
+ 
+ Look at the image here  
+ file:///D:/Notepad%20Workspace/Images/StronglyConnectedGraph.jpg
+ 
+*	If a directed graph is not strongly connected but can be converted to strongly connected graph by treating all edges as undirected then such a directed graph is called weakly connected.
+
+*	Closed Walk - A walk is called a closed walk if it starts and ends at the same vertex and length of the walk must be greater than 0.
+Look at the image here file:///D:/Notepad%20Workspace/Images/GraphCycle.jpg
+ 
+*	Simple cycle – A close walk in which other than start and end vertices no other vertex are repeated.
+*	Acyclic graph- a graph with no cycle.
+Directed acyclic graph is called DAG
+Look at the image here file:///D:/Notepad%20Workspace/Images/GraphAcyclic.jpg
+ 

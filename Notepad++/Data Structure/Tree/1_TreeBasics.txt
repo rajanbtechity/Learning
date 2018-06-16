@@ -1,0 +1,49 @@
+Tree is one data structure that's quite often used to represent hierarchical data. For example, lets say we want to show employees in an organization and their positions in organizational hierarchy.
+
+Ok, so tree is an efficient way of storing and organizing data that is naturally hierarchical. But thats not only application of tree in computer science. 
+
+Tree data structure can be defined as a collection of entities called nodes linked together to simulate a hierarchy. Its a non linear data structure.
+
+Root - The Topmost node in the tree is called root of the tree.
+Root is only node without a parent.
+
+Each node will contain some data and this can be data of any type.
+So each node will contain some data and may contain link or reference to some other nodes that can be called its children.
+
+sibling- children of same parents are called sibling.
+
+If a node has a direct link to some other node, then we have a parent child relationship.
+
+Leaf - Any node in the tree that does not have a child is called leaf node.
+
+grand-parent- Parent of parent can be called grand-parent
+
+When we walk down the tree we can walk in only one direction.
+
+ancestor- If we can go from node A to node B, then A can be called ancestor of B.
+
+descendant- If we can go from node A to node B then B can be called as descendant of A
+
+Tree is a recursive data structure. Recursion basically is reducing something in a self similar manner
+
+In a tree with N nodes there will be n-1 links or edges. One incoming edge for each node except the root.
+
+number of edges= Number of nodes - 1
+
+Depth of x - length of path from root to x or No of edges in path from root to x
+
+Depth of root node will be zero
+
+Height of x- No of edges in longest path from x to a leaf
+
+Height of tree- Height of root node
+
+Application of Tree
+
+1. Storing  naturally hierarchical data like file system
+
+2. Organize data for quick search, insertion, deletion
+
+3. Trie- dictionary
+
+4. Network routing algorithm

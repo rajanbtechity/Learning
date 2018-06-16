@@ -1,0 +1,62 @@
+1. Creating Webservice using Axis2
+
+   1.1 Download Axis2 jars and extract it somewhere in the system.(Downloaded axis2-1.7.7-bin)
+   1.2 Add Axis2 jars to eclipse.
+   1.3 Create Dynamic web project.
+   1.4 Add WebService class to the project.
+   1.5 convert webservice class into webservice using Axis2 implementation.
+   1.6 Axis2 belongs to jax-ws specification and jax-ws has given some annotation like @webservice,@webmethod,@webparam 
+       which eclipse would take care.
+   1.7 http://localhost:8010/SoapWebServiceAxis2/ -->service-->get the wsdl
+	   
+   Error Details while creating webservice using axis2.
+   1. current verison of axis2(1.7.7) doesn't support dynamic web module version heigher than 2.5
+   2. From Axis2 1.7 onwards, Eclipse fails to copy xmlschema-core library to the project. 
+	  It will throw NoClassDefFoundError: org/apache/ws/commons/schema/resolver/URIResolver when you run the project. 
+	  To avoid this exception, copy the xmlschema-core-x.x.x.jar file from $AXIS2_HOME/lib folder to the 
+	  Eclipse project directory WebContent/WEB-INF/lib.
+	  
+	  
+2. Create Webservice client using Axis2
+   
+   2.1  Create Dynamic WebProject or normal java project.
+   2.2  Generate stub in src folder for which we need wsdl url.
+        If we are using wsdl url, service must be running. If using physical wsdl file service being up is not required.
+   2.3 	Added xmlschema-core library in WEB-INF lib folder.
+   2.4  stub will be created in src folder. For each method in webservice call, one inner class will be created inside stub class.
+   2.5  create inner class object and set parameters to be passed to the method using inner class object
+   
+        CalServiceStub stub = new CalServiceStub();
+		
+		CalServiceStub.Add param = new CalServiceStub.Add();
+		
+		param.setI(40);
+		param.setJ(50);
+		
+		stub.add(param); - It returns response of Type CalServiceStub AddResponse innner class type.
+		CalServiceStub.AddResponse rsp=stub.add(param);
+		
+		For fetching the output need to use get_return() method;
+		int result=rsp.get_return();
+		
+    Error Details
+	1. After running the client was getting error.
+	The ServiceClass object does not implement the required method in the following form: OMElement add(OMElement e)
+	2. Modify service.xml in webservice project as 
+	WEB-INF->services->MyService -> META-INF -> services.xml
+	
+	From
+	
+	<messageReceivers>
+		<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+		<messageReceiver  mep="http://www.w3.org/2004/08/wsdl/in-out"  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+</messageReceivers>
+    
+	To
+	
+	<messageReceivers>
+		<messageReceiver mep="http://www.w3.org/ns/wsdl/in-only" class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+		<messageReceiver  mep="http://www.w3.org/ns/wsdl/in-out"  class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+</messageReceivers>
+	
+   

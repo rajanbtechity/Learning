@@ -1,0 +1,72 @@
+1. git init
+
+Transform the current directory into a Git repository. This adds a .git subdirectory to the current directory.
+
+1.1 git init <directory>
+Create an empty Git repository in the specified directory. Running this command will create a new subdirectory called containing nothing but the .git subdirectory.
+
+1.2 git init vs. git clone
+
+git clone is dependent on git init. git clone is used to create a copy of an existing repository. Internally, git clone first calls git init to create a new repository. It then copies the data from the existing repository, and checks out a new set of working files.
+
+1.3 git init --bare <directory>
+The --bare flag creates a repository that doesn’t have a working directory, making it impossible to edit files and commit changes in that repository. You would create a bare repository to git push and git pull from, but never directly commit to it. 
+
+Central repositories should always be created as bare repositories because pushing branches to a non-bare repository has the potential to overwrite changes. Think of --bare as a way to mark a repository as a storage facility, as opposed to a development environment.
+
+bare repository will have .git extension.
+
+
+
+2. git clone
+
+git clone is primarily used to point to an existing repo and make a clone or copy of that repo at in a new directory, at another location.
+
+2.1 git clone <repo> <directory>
+Clone the repository located at <repo> into the folder called ~<directory>! on the local machine.
+
+2.2 git clone -branch <tag> <repo>
+Clone the repository located at <repo> and only clone the ref for <tag>.
+
+2.3 git clone -depth=1 <repo>
+Clone the repository located at <repo> and only clone the history of commits specified by the option depth=1.
+
+2.4 git clone -branch new_feature git://remoterepository.git
+The -branch argument lets you specify a specific a branch to clone instead of the branch the remote HEAD is pointing to, usually the master branch.
+
+
+3. git config
+The git config command is a convenience function that is used to set Git configuration values on a global or local project level.
+
+The most basic use case for git config is to invoke it with a configuration name, which will display the set value at that name. Configuration names are dot delimited strings composed of a 'section' and a 'key' based on their hierarchy. For example: user.email
+
+git config user.email
+
+3.1 git config levels and files
+
+The git config command can accept arguments to specify which configuration level to operate on.
+
+--local
+By default, git config will write to a local level if no configuration option is passed. 
+Local configuration values are stored in a file that can be found in the repo's .git directory: .git/config
+
+--global
+Global level configuration is user-specific, meaning it is applied to an operating system user. Global configuration values are stored in a file that is located in a user's home directory. ~ /.gitconfig on unix systems and C:\Users\<username>\.gitconfig on windows
+
+
+--system
+System-level configuration is applied across an entire machine. This covers all users on an operating system and all repos.
+
+
+3.2 git config editor - core.editor
+git config --global core.editor "vim"
+One of the most common use cases for git config is configuring which editor Git should use.
+
+3.3 Merge tools
+git config --global merge.tool kdiff3
+
+3.4 Colored outputs
+git config --global color.ui false
+
+3.5 Aliases
+A common use case for Git aliases is shortening the commit command. Git aliases are stored in Git configuration files. This means you can use the git config command to configure aliases.
