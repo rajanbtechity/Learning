@@ -1,0 +1,170 @@
+Java Inheritance
+
+1. Inheritance Basics
+To inherit a class, you simply incorporate the definition of one class into another by using the extends keyword.
+
+class A{
+int i,j;
+
+void showij(){
+System.out.println("i and j:"+i+" "+j);
+}
+}
+
+class B extends A{
+int k;
+
+void showk(){
+System.out.println("k: "+k);
+}
+
+void sum(){
+System.out.println("i+j+k: "+(i+j+k));
+}
+}
+
+class SimpleInheritance{
+public static void main(String args[])
+{
+A superob= new A();
+B subob=new B();
+
+superob.i=10;
+superob.j=20;
+
+System.out.println("Contents of superob;");
+superob.showij();
+
+/*
+The subclass has access to all public members of its superclass
+*/
+subob.i=7;
+subob.j=8;
+subob.k=9;
+System.out.println("Contents of subob:");
+subob.showij();
+subob.showk();
+
+System.out.println("Sum of i, j and k in subob:");
+subob.sum();
+}
+}
+
+
+*The subclass has access to all public members of its superclass
+
+*Even though A is a superclass for B, it is also a completely independent, standalone class. Being a superclass for a subclass does not mean that the superclass cannot be used by itself.
+
+2. Member Access and Inheritance
+
+*Although a subclass includes all of the members of its superclass, it cannot access those members of the superclass that have been declared as private.
+
+3. A Superclass Variable Can Reference a Subclass Object
+
+*A reference variable of a superclass can be assigned a reference to any subclass derived from that superclass.
+It is important to understand that it is the type of the reference variable—not the type of the object that it refers to—that determines what members can be accessed.That is, when a reference to a subclass object is assigned to a superclass reference
+variable, you will have access only to those parts of the object defined by the superclass.
+
+4. Using super
+
+* super has two general forms. The first calls the superclass’ constructor. The second is used to access a member of the superclass that has been hidden by a member of a subclass.
+
+4.1  Using super to Call Superclass Constructors
+
+A subclass can call a constructor defined by its superclass by use of the following form of super:
+super(arg-list);
+
+Here, arg-list specifies any arguments needed by the constructor in the superclass. 
+
+*super( ) must always be the first statement executed inside a subclass constructor.
+
+*When a subclass calls super( ), it is calling the constructor of its immediate superclass. Thus, super( ) always refers to
+the superclass immediately above the calling class. This is true even in a multileveled hierarchy. 
+Also, super( ) must always be the first statement executed inside a subclass constructor.
+
+4.2 A Second Use for super
+
+*The second form of super acts somewhat like this, except that it always refers to the superclass of the subclass in which it is used. This usage has the following general form:
+super.member
+
+*Here, member can be either a method or an instance variable.
+
+*This second form of super is most applicable to situations in which member names of a subclass hide members by the same name in the superclass.
+
+
+
+5. When Constructors Are Executed
+
+When a class hierarchy is created, in what order are the constructors for the classes that make up the hierarchy executed? 
+For example, given a subclass called B and a superclass called A, is A’s constructor executed before B’s, or vice versa? 
+
+*The answer is that in a class hierarchy, constructors complete their execution in order of derivation, from superclass to subclass. Further, since super( ) must be the first statement executed in a subclass’ constructor, this order is the same whether or not
+super( ) is used. 
+
+*If super( ) is not used, then the default or parameterless constructor of each superclass will be executed.
+
+6. Method Overriding
+
+*In a class hierarchy, when a method in a subclass has the same name and type signature as a method in its superclass, then the method in the subclass is said to override the method in the superclass. When an overridden method is called from within its subclass, it will always refer to the version of that method defined by the subclass.
+
+*If you wish to access the superclass version of an overridden method, you can do so by using super.
+
+*Method overriding occurs only when the names and the type signatures of the two methods are identical. If they are not, then the two methods are simply overloaded.
+
+7. Dynamic Method Dispatch
+
+* Dynamic method dispatch is the mechanism by which a call to an overridden method is resolved at run time, rather than compile time. Dynamic method dispatch is important because this is how Java implements run-time polymorphism.
+
+Let's begin by restating an important principle: a superclass reference variable can refer to a subclass object. Java uses this fact to resolve calls to overridden methods at run time. Here is how. When an overridden method is called through a superclass reference, Java determines which version of that method to execute based upon the type of the object being referred to at the time the call occurs. Thus, this determination is made at run time. When different types of objects are referred to, different versions of an overridden method will be called. In other words, it is the type of the object being referred to (not the type of the reference variable) that
+determines which version of an overridden method will be executed. Therefore, if a superclass contains a method that is overridden by a subclass, then when different types of objects are referred to through a superclass reference variable, different versions of the method are executed.
+
+8. Why Overridden Methods?
+As stated earlier, overridden methods allow Java to support run-time polymorphism. Polymorphism is essential to object-oriented programming for one reason: it allows a general class to specify methods that will be common to all of its derivatives, while
+allowing subclasses to define the specific implementation of some or all of those methods. Overridden methods are another way that Java implements the "one interface, multiple methods" aspect of polymorphism.
+
+9. Using Abstract Classes
+There are situations in which you will want to define a superclass that declares the structure of a given abstraction without providing a complete implementation of every method. That is, sometimes you will want to create a superclass that only defines a generalized form that will be shared by all of its subclasses, leaving it to each subclass to fill in the details. Such a class determines the nature of the methods that the subclasses must implement. One way this situation can occur is when a superclass is unable to create a meaningful implementation for a method.
+
+*Any class that contains one or more abstract methods must also be declared abstract. To declare a class abstract, you simply use the abstract keyword in front of the class keyword at the beginning of the class declaration. 
+
+*There can be no objects of an abstract class. That is, an abstract class cannot be directly instantiated with the new operator. Such objects would be useless, because an abstract class is not fully defined. 
+
+*Also, you cannot declare abstract constructors, or abstract static methods.
+
+*Any subclass of an abstract class must either implement all of the abstract methods in the superclass, or be declared abstract itself.
+
+*Although abstract classes cannot be used to instantiate objects, they can be used to create object references, because Java’s approach to run-time polymorphism is implemented through the use of superclass references.
+
+*it is through superclass reference variables that overridden methods are resolved at run time.
+
+10. Using final with Inheritance
+
+* The keyword final has three uses. First, it can be used to create the equivalent of a named constant. This use was described in the preceding chapter. The other two uses of final apply to inheritance.
+
+10.1 Using final to Prevent Overriding
+While method overriding is one of Java’s most powerful features, there will be times when you will want to prevent it from occurring. To disallow a method from being overridden, specify final as a modifier at the start of its declaration. 
+
+*Methods declared as final cannot be overridden.
+
+Methods declared as final can sometimes provide a performance enhancement:
+The compiler is free to inline calls to them because it “knows” they will not be overridden by a subclass. 
+When a small final method is called, often the Java compiler can copy the bytecode for the subroutine directly inline with the compiled
+code of the calling method, thus eliminating the costly overhead associated with a method call. 
+Inlining is an option only with final methods. 
+Normally, Java resolves calls to methods dynamically, at run time. This is called late binding. However, since final methods cannot be overridden, a call to one can be resolved at compile time. This is called early binding.
+
+10.2 Using final to Prevent Inheritance
+* Sometimes you will want to prevent a class from being inherited. To do this, precede the class declaration with final.
+
+* Declaring a class as final implicitly declares all of its methods as final, too.
+
+* it is illegal to declare a class as both abstract and final since an abstract class is incomplete by itself and relies upon its subclasses to provide complete implementations.
+
+11. The Object Class
+There is one special class, Object, defined by Java. All other classes are subclasses of Object. That is, Object is a superclass of all other classes. This means that a reference variable of type Object can refer to an object of any other class. 
+Also,since arrays are implemented as classes, a variable of type Object can also refer to any array.
+
+The methods getClass( ), notify( ), notifyAll( ), and wait( ) are declared as final.
+You may override the others. These methods are described elsewhere in this book.However, notice two methods now: equals( ) and toString( ). The equals( ) method compares two objects. It returns true if the objects are equal, and false otherwise.
+The precise definition of equality can vary, depending on the type of objects being compared. The toString( ) method returns a string that contains a description of the object on which it is called. Also, this method is automatically called when an object
+is output using println( ).
