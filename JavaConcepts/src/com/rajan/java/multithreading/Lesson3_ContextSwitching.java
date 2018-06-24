@@ -50,6 +50,11 @@ class ContextSwitch implements Runnable{
 	
 }
 
+/*
+Each thread starts in a separate call stack.
+Invoking the run() method from main thread, the run() method goes onto the current 
+call stack rather than at the beginning of a new call stack.
+ */
 class NoContextSwitch implements Runnable{
 
 	@Override

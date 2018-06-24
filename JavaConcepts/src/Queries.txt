@@ -1,2 +1,44 @@
 1. Difference between Integer.class and int.class. Annotation2 class generated NoSuchMethodException when used Integer.class
 2. Same annotation can be defined in different classed. Whats the scope of an annotation.
+3. ArrayList<Message> list=new ArrayList<Message>(messages.values());
+
+how this is different from  (ArrayList<Message>) messages.values()
+
+4. 	private Map<Long, Message> messages=DatabaseClass.getMessages();
+
+for(Message message:messages.values())
+
+in for each variable is of type Message so it will iterate through messages.values which are of Message type and not on messages.
+
+below statement is wrong.
+
+
+for(Message message:messages)
+
+5. Does remove method in map has a return type of the value of the map and put doesn't have any return type?.
+
+public Message removeMessage(long id){
+		return messages.remove(id);
+	}
+	
+
+	
+	
+	
+	public Message updateMessage(Message message){
+		if(message.getId()<=0){
+			return null;
+		}
+		messages.put(message.getId(), message);
+		return message;
+	}
+	
+	Below one didn't work
+	public Message updateMessage(Message message){
+		if(message.getId()<=0){
+			return null;
+		}
+		return messages.put(message.getId(), message);
+	}
+	
+	
