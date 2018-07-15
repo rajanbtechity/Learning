@@ -1,5 +1,5 @@
 1. Difference between Integer.class and int.class. Annotation2 class generated NoSuchMethodException when used Integer.class
-2. Same annotation can be defined in different classed. Whats the scope of an annotation.
+2. Same annotation can be defined in different classes. Whats the scope of an annotation.
 3. ArrayList<Message> list=new ArrayList<Message>(messages.values());
 
 how this is different from  (ArrayList<Message>) messages.values()
