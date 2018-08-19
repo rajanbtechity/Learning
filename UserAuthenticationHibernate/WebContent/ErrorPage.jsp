@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="refresh" content="2; URL=UserLogin.jsp">
+<meta http-equiv="refresh" content="3; URL=UserLogin.jsp">
 <title>Insert title here</title>
 </head>
 <body>
