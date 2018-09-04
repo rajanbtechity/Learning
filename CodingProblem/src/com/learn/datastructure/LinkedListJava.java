@@ -87,7 +87,6 @@ public class LinkedListJava {
 		l1.deleteNode(4);
 		l1.deleteNode(10);
 		l1.printList();
-
 	}
 
 }
