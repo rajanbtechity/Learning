@@ -30,7 +30,7 @@ public class QueueJava2 {
 
 	void printQueue() {
 		Node currNode = front;
-		while (currNode.next != null) {
+		while (currNode != null) {
 			System.out.print(currNode.data + " ");
 			currNode = currNode.next;
 		}

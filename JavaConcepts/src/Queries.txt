@@ -42,3 +42,44 @@ public Message removeMessage(long id){
 	}
 	
 	
+	
+6. Sort a 2D Array based on some column
+
+Arrays.sort(queries, new Comparator<int[]>() { 
+           
+           @Override              
+           // Compare values according to columns 
+           public int compare(final int[] entry1,  
+                              final int[] entry2) { 
+   
+             // To sort in descending order revert  
+             // the '>' Operator 
+             if (entry1[0] > entry2[0]) 
+                 return 1; 
+             else
+                 return -1; 
+           } 
+         });  // End o
+         
+         
+7. Adding an element to a list which is within a list
+
+ArrayList<Integer> emptyList=new ArrayList<Integer>();
+        List<ArrayList<Integer>> seqList=new ArrayList<ArrayList<Integer>>();
+      for(int i=0;i<n;i++)
+      {
+          seqList.add(new ArrayList(emptyList));
+      }
+      
+      
+      Above is the correct way of adding.
+      
+      when i used seqList.add(emptyList); and 
+      then tried to add 
+      seqList.get(0).add(5)
+      
+      and then print 
+      seqList.get(0)
+      seqList.get(1)
+      
+      both gives same output.
