@@ -4,7 +4,7 @@ public class P8_LargestSumContigousArray {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] ary={-2, -3, 4, -1, -2, 1, 5, -3};
+		int[] ary={-2, -3, -4, -1, -2, -1, -5, -3};
 		
 		int max_sum=Integer.MIN_VALUE,curr_sum=0;
 		

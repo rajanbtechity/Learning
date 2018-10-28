@@ -57,7 +57,7 @@ public class P11_LongestPalindromicSubstring {
 		int n=0,m=0;
 		int[][] matrix2=new int[str1.length()][str1.length()];
 		
-		 String str = "GeeksforGeeks"; 
+		 String str = "abba"; 
 	     System.out.println("Length is: "+longestPalSubstr(str));
 		
 		
