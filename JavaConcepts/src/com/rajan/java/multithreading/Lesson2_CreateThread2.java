@@ -15,6 +15,7 @@ public class Lesson2_CreateThread2 implements Runnable{
 		Thread t1=new Thread(ob1);
 		t1.start();
 		t1.setName("This is thread 1");
+		System.out.println("Main Thread");
 
 	}
 
