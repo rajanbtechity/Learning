@@ -1,0 +1,113 @@
+
+1. How to know git version
+git --version
+
+2. Configure global parameters
+git config --global user.name "rajan kumar"
+git config --global user.email "rajanbtechity@gmail.com"
+
+3. To see list of configured parameters
+git config --list
+
+4. Inititalize a directory as git directory
+git init 
+
+5. check git status
+
+git status
+
+6. Add untracked files to git
+
+git add .
+
+7. commit changes to git
+git commit -m "first commit"
+
+8. Add files to remote directory
+git remote add origin https://V536139@onestash.verizon.com/scm/~v536139/myresource.git
+
+here origin is a name give to the remote connection.
+
+9. push changes to remote directory
+git push -u origin master
+
+
+10. Check commit log
+
+git log --oneline
+
+git log
+
+
+11. Checking out a file from an earlier commit
+
+git checkout <commit's number> index.html
+
+git checkout <commit's number>
+
+
+
+12. The local branch had multiple commits which i am not able to push to remote. It gives this message
+
+$ git push -u origin master
+Branch master set up to track remote branch master from origin.
+Everything up-to-date
+
+
+The reason is local branch is not pointing to master branch. To check that do git branch
+
+V536139@VIN0020ADKVTHEN MINGW64 /c/users/v536139/Project/PPSH/Notepad++/Learning ((d583220...))
+$ git branch
+* (HEAD detached from 7ed467a)
+  master
+
+
+Now what we can do it we can checkout the local commits into a new branch dg
+git checkout -b dg
+git branch
+* dg
+  master
+
+Now we can push the new branch to remote. if this branch doesn't exit in remote it will create the new branch in remote.
+git push -u origin dg
+
+
+
+
+Now suppose we want only master branch in remote and no other branch. What we can do it we will create local branch dg which we did earlier. Then checkout master branch
+using "git checkout master" and then we can merge dg branch into master and push this to remote.
+
+git merge dg
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working directory clean
+
+
+
+
+V536139@VIN0020ADKVTHEN MINGW64 /c/users/v536139/Project/PPSH/Notepad++/Learning (master)
+$ git log --oneline
+d583220 27th dec second commit
+6768ea5 27th Dec first commit
+4c44511 Added Todo List folder and modifier git basics.txt
+060ed67 Adding index.html
+efa61a1 Initial Commit
+
+
+13. check git branch
+git branch
+
+14. create a new branch
+git checkout -b dg
+
+15. push a branch to remote 
+git push -u origin dg          -->dg branch is being pushed
+git push -u origin master      -->master branch is being pushed
+
+
+
+16. Cloning an online repository
+
+git clone <repository url>
